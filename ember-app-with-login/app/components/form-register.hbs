@@ -1,0 +1,107 @@
+<form class="register-form" {{on "submit" this.submitForm}}>
+  <div class="register-form__field">
+    <label for="email" class="register-form__label">Email</label>
+    <input
+      id="email"
+      type="email"
+      class="glass register-form__input"
+      placeholder="Enter your email"
+      value={{this.email}}
+      {{on "input" this.updateEmail}}
+      required
+    />
+    {{#if this.errors.email}}
+      <div class="register-form__error">{{this.errors.email}}</div>
+    {{/if}}
+  </div>
+
+  <div class="register-form__field">
+    <label for="name" class="register-form__label">Name</label>
+    <input
+      id="name"
+      type="text"
+      class="glass register-form__input"
+      placeholder="Enter your name"
+      value={{this.name}}
+      {{on "input" this.updateName}}
+      required
+    />
+    {{#if this.errors.name}}
+      <div class="register-form__error">{{this.errors.name}}</div>
+    {{/if}}
+  </div>
+
+  <div class="register-form__field">
+    <label for="organization" class="register-form__label">Organization Name</label>
+    <input
+      id="organization"
+      type="text"
+      class="glass register-form__input"
+      placeholder="Enter organization name (optional)"
+      value={{this.organizationName}}
+      {{on "input" this.updateOrganizationName}}
+    />
+    {{#if this.errors.organization_name}}
+      <div class="register-form__error">{{this.errors.organization_name}}</div>
+    {{/if}}
+  </div>
+
+  <div class="register-form__field">
+    <label for="password" class="register-form__label">Password</label>
+    <input
+      id="password"
+      type="password"
+      class="glass register-form__input"
+      placeholder="Enter your password"
+      value={{this.password}}
+      {{on "input" this.updatePassword}}
+      required
+    />
+    {{#if this.errors.password}}
+      <div class="register-form__error">{{this.errors.password}}</div>
+    {{/if}}
+  </div>
+
+  <div class="register-form__field">
+    <label for="password-confirm" class="register-form__label">Confirm Password</label>
+    <input
+      id="password-confirm"
+      type="password"
+      class="glass register-form__input"
+      placeholder="Confirm your password"
+      value={{this.passwordConfirmation}}
+      {{on "input" this.updatePasswordConfirmation}}
+      required
+    />
+    {{#if this.errors.passwordConfirmation}}
+      <div class="register-form__error">{{this.errors.passwordConfirmation}}</div>
+    {{/if}}
+  </div>
+
+  {{#if this.errors.general}}
+    <div class="register-form__error register-form__error--general">
+      {{this.errors.general}}
+    </div>
+  {{/if}}
+
+  <button 
+    type="submit" 
+    class="register-form__submit"
+    disabled={{this.isSubmitting}}
+  >
+    {{#if this.isSubmitting}}
+      Creating Account...
+    {{else}}
+      Create Account
+    {{/if}}
+  </button>
+</form>
+
+
+
+{{!-- Hello. Do you see that I have a component here `form-register.hbs`? Can you please create a simple form that matched these requirements:
+- It should have an email input field.
+- It should have a name input field.
+- It should have an optional field called "Organization Name"
+- It should have a password and password confirmation input fields.
+- Please use the "glass" input styles that you can see in app.scss, please style similar to Apple's new Glass UI. --}}

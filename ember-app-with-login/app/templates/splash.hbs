@@ -1,0 +1,43 @@
+{{page-title "Landing Emails"}}
+
+<div class="splash">
+  <div class="splash__content">
+    <div class="splash__header">
+      <h1 class="brand__name">Landing Emails</h1>
+      <p class="brand__tagline">
+        Validate NOW.
+      </p>
+    </div>
+
+    <div class="splash__login">
+      <div class="splash__login-content">
+        <h3>Login</h3>
+        <Input
+          id="email-login"
+          class="splash__email-input glass"
+          placeholder="anewyorker@gmail.com"
+          type="email"
+          @value={{this.userEnteredEmail}}
+        />
+        <Input
+          id="password-login"
+          class="splash__email-input glass"
+          placeholder="shhhh....."
+          type="password"
+          @value={{this.userEnteredPassword}}
+        />
+        <button
+          class="splash__submit-btn"
+          type="button"
+          {{on "click" this.login}}
+        >
+          Login
+        </button>
+      </div>
+      <div class="mt-2">
+        Or register....
+        <FormRegister />
+      </div>
+    </div>
+  </div>
+</div>

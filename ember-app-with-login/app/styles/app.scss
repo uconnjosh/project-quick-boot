@@ -1,0 +1,414 @@
+$bg-color: #e6d3c4;
+$accent-color: #cd0000;
+$off-black: rgb(0 0 0 / 85%);
+
+@use 'utilities';
+
+body {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.brand {
+  position: relative;
+}
+
+.brand__name {
+  color: $accent-color
+}
+
+.brand__slogan {
+  font-size: .9rem;
+  position: absolute;
+  top: 34px;
+  left: 10px;
+  font-style: italic;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main__list {
+  position: relative;
+  background-color: #e6d3c4;
+  overflow: scroll;
+}
+
+.filter {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+}
+
+input::placeholder {
+  color: $off-black;
+}
+
+.glass {
+  padding: .5rem 1rem;
+  background: rgb(255 255 255 / 15%); /* translucent white */
+  border: 1px solid rgb(255 255 255 / 30%); /* subtle border */
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 10%); /* the key part! */
+  backdrop-filter: blur(20px); /* Safari support */
+  z-index: 1000;
+  color: $off-black;
+  font-size: 1.2rem;
+}
+
+.main__list--header {
+  top: 1px;
+  margin: 1rem;
+}
+
+.main__list__list {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.FlyerDetail {
+  padding-bottom: 129.4%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:hover {
+    outline: solid 3px $accent-color;
+  }
+
+  &.viewing {
+    transform: scale(1.025);
+    outline: solid 1px $accent-color;
+    // don't think I like the animation
+    // animation: pulse 1.5s ease-in-out infinite;donthinkIliketheanimationanimationdonthinkIliketheanimationanimationdonthinkIliketheanimationanimationdonthinkIliketheanimationanimation
+  }
+}
+
+.flyer-marker {
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgb(0 0 0 / 30%);
+}
+
+.flyer__detail {
+  background-color: rgb(250 249 245);
+  padding: 3rem;
+}
+
+.flyer-detail-route {
+  z-index: 2;
+  background-color: rgb(250 249 245);
+  overflow-y: auto;
+
+  img {
+    width: 100%
+  }
+}
+
+.flyer-detail-route__control {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  padding: 1rem 1.5rem;
+  background: rgb(255 255 255 / 15%); /* translucent white */
+  border: 1px solid rgb(255 255 255 / 30%); /* subtle border */
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 10%); /* the key part! */
+  backdrop-filter: blur(20px); /* Safari support */
+  z-index: 1000;
+  color: white; /* Or dark depending on background */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+// Splash Screen Styles
+.splash {
+  height: 100vh;
+  background-color: $bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.splash__content {
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.splash__header {
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem;
+    color: $accent-color;
+  }
+}
+
+.brand__tagline {
+  font-size: 1.2rem;
+  color: $off-black;
+  margin: 0;
+  font-style: italic;
+}
+
+.splash__login {
+  margin: 4rem 0;
+  z-index: 100;
+  position: relative;
+}
+
+.splash__login-content {
+  h2 {
+    color: $off-black;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: $off-black;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+.splash__email-input {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+
+  &::placeholder {
+    opacity: .5;
+  }
+}
+
+.splash__submit-btn {
+  background-color: $accent-color;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  }
+}
+
+// Flyer placeholder collages
+.splash__flyers-top,
+.splash__flyers-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  opacity: 0.6;
+}
+
+.splash__flyers-top {
+  margin-bottom: 4rem;
+}
+
+.splash__flyers-bottom {
+  margin-top: 4rem;
+}
+
+.splash__flyer-placeholder {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  transform: rotate(var(--rotation, 0deg));
+  opacity: 0.8;
+}
+
+// Individual flyer variations
+.splash__flyer--1 {
+  width: 80px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+
+  --rotation: -5deg;
+}
+
+.splash__flyer--2 {
+  width: 100px;
+  height: 140px;
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+
+  --rotation: 3deg;
+}
+
+.splash__flyer--3 {
+  width: 90px;
+  height: 130px;
+  background: linear-gradient(135deg, #a8e6cf, #7fcdcd);
+
+  --rotation: -2deg;
+}
+
+.splash__flyer--4 {
+  width: 70px;
+  height: 100px;
+  background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+
+  --rotation: 8deg;
+}
+
+.splash__flyer--5 {
+  width: 85px;
+  height: 125px;
+  background: linear-gradient(135deg, #a8c8ec, #7d8dc1);
+
+  --rotation: -3deg;
+}
+
+.splash__flyer--6 {
+  width: 95px;
+  height: 135px;
+  background: linear-gradient(135deg, #ffb74d, #ff8a65);
+
+  --rotation: 6deg;
+}
+
+.splash__flyer--7 {
+  width: 75px;
+  height: 110px;
+  background: linear-gradient(135deg, #ce93d8, #ba68c8);
+
+  --rotation: -4deg;
+}
+
+.splash__flyer--8 {
+  width: 105px;
+  height: 150px;
+  background: linear-gradient(135deg, #81c784, #66bb6a);
+
+  --rotation: 2deg;
+}
+
+.splash__flyer--9 {
+  width: 65px;
+  height: 95px;
+  background: linear-gradient(135deg, #f48fb1, #e91e63);
+
+  --rotation: -6deg;
+}
+
+// Registration Form Styles
+.register-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.register-form__label {
+  font-size: 1rem;
+  color: $off-black;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.register-form__input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: rgb(255 255 255 / 50%);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 15%);
+    transform: translateY(-1px);
+  }
+
+  &::placeholder {
+    color: rgb(0 0 0 / 50%);
+  }
+}
+
+.register-form__submit {
+  background-color: $accent-color;
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(205 0 0 / 25%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.register-form__error {
+  color: $accent-color;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.register-form__error--general {
+  text-align: center;
+  padding: 0.75rem;
+  background: rgb(205 0 0 / 10%);
+  border: 1px solid rgb(205 0 0 / 20%);
+  border-radius: 0.5rem;
+  margin-top: 0;
+}

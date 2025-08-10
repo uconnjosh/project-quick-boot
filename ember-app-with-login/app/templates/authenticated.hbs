@@ -1,0 +1,6 @@
+<h1>AUTHENTICATED AS: {{this.session.data.authenticated.email}} ✅</h1>
+
+<button {{on "click" this.logout}}>
+  Logout
+</button>
+{{outlet}}
