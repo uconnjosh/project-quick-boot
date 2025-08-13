@@ -6,7 +6,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   @service router;
 
   // host = 'http://127.0.0.1:3000';
-  host = 'api';
+  host = '';
   namespace = '';
 
   get headers() {

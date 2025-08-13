@@ -1,5 +1,6 @@
 import DeviseAuthenticator from 'ember-simple-auth/authenticators/devise';
 
-export default class DeviseAuthenticator extends DeviseAuthenticator {
-  serverTokenEndpoint = "api/auth/sign_in";
+// todo fix the name
+export default class OAuth2Authenticator extends DeviseAuthenticator {
+  serverTokenEndpoint = "auth/sign_in";
 }
