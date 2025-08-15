@@ -1,4 +1,4 @@
-class MeController < ApplicationController
+class Api::MeController < ApplicationController
   before_action :authenticate_user!
 
   def show

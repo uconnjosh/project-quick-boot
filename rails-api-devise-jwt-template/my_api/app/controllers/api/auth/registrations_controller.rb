@@ -1,4 +1,4 @@
-class Auth::RegistrationsController < Devise::RegistrationsController
+class Api::Auth::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   private

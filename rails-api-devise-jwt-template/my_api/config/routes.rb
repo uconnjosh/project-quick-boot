@@ -8,8 +8,8 @@ Rails.application.routes.draw do
         registration: "sign_up"
       },
       controllers: {
-        sessions: "auth/sessions",
-        registrations: "auth/registrations"
+        sessions: "api/auth/sessions",
+        registrations: "api/auth/registrations"
       }
 
     get "/health", to: proc { [200, { "Content-Type" => "application/json" }, [ { ok: true }.to_json ]] }
